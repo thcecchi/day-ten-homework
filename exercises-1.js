@@ -40,20 +40,28 @@ var getAverageTime = function(person) {
     "use strict";
     // ... return ...
 
-    var numberTimes = 0;
-    var totalTime = 0;
-// loop through person object
-    for (var prop in person) {
-// convert object values to integer and sum
-      totalTime += parseInt(person[prop]);
-    }
-// get the number of races
-    numberTimes = Object.keys(person).length;
-    // console.log("Number of times: " + numberTimes);
-// divide numberTimes by totalTime
-    totalTime /= numberTimes;
-    // console.log("The avg time is: " + totalTime);
-    return totalTime;
+//     var numberTimes = 0;
+//     var totalTime = 0;
+// // loop through person object
+//     for (var prop in person) {
+// // convert object values to integer and sum
+//       totalTime += parseInt(person[prop]);
+//     }
+// // get the number of races
+//     numberTimes = Object.keys(person).length;
+//     // console.log("Number of times: " + numberTimes);
+// // divide numberTimes by totalTime
+//     totalTime /= numberTimes;
+//     // console.log("The avg time is: " + totalTime);
+//     return totalTime;
+
+var totalTime = 0;
+
+Object.keys(person).forEach(function(element, index, array) {
+  totalTime += person[array[index]];
+});
+
+return totalTime / Object.keys(person).length;
 
 }
 
